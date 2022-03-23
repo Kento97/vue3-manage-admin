@@ -1,16 +1,18 @@
-import { defineStore } from 'pinia'
+import {defineStore} from 'pinia'
 
-export const useCounterStore = defineStore({
-    id: 'counter',
+export const useStore = defineStore({
+    id: 'index_store',
     state: () => ({
-        counter: 0
+        tagsList: [],
+        collapse: false
     }),
-    getters: {
-        doubleCount: (state) => state.counter * 2
-    },
+    getters: {},
     actions: {
-        increment() {
-            this.counter++
+        // delTagsItem(state,data){
+        //
+        // }
+        handleCollapse() {
+            this.collapse = !this.collapse
         }
     }
 })
