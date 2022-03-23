@@ -1,12 +1,14 @@
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import {createApp} from 'vue'
+import {createPinia} from 'pinia'
+import installElementPlus from "@/plugins/element";
 
 import App from './App.vue'
 import router from './router'
+import './index.css'
 
 const app = createApp(App)
-
-app.use(createPinia())
-app.use(router)
-
-app.mount('#app')
+installElementPlus(app)
+app
+    .use(createPinia())
+    .use(router)
+    .mount('#app')
