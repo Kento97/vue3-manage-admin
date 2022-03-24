@@ -7,7 +7,7 @@ import * as ElIcons from '@element-plus/icons-vue'
 import App from './App.vue'
 import router from './router'
 import './index.css'
-
+import 'animate.css/animate.min.css'
 const app = createApp(App)
 installElementPlus(app)
 Object.keys(ElIcons).forEach(key => {

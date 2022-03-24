@@ -20,7 +20,15 @@ const router = createRouter({
                         title: '系统首页'
                     },
                     component: () => import ( /* webpackChunkName: "dashboard" */ "../views/Dashboard.vue")
-                }
+                },
+                {
+                    path: "/table",
+                    name: "basetable",
+                    meta: {
+                        title: '表格'
+                    },
+                    component: () => import ( /* webpackChunkName: "table" */ "@/views/BaseTable.vue")
+                },
             ]
         }
     ]

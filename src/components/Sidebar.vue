@@ -1,13 +1,13 @@
 <template>
   <div class="sidebar">
-    <el-menu :collapse="collapse"
-             :default-active="onRoutes"
-             active-text-color="#20a0ff"
-             background-color="#324157"
-             class="sidebar-el-menu"
-             router
-             text-color="#bfcbd9"
-             unique-opened
+    <el-menu
+        :default-active="onRoutes"
+        active-text-color="#20a0ff"
+        background-color="#324157"
+        class="sidebar-el-menu"
+        router
+        text-color="#bfcbd9"
+        unique-opened
     >
       <TreeMenu :menuList="menuList"/>
     </el-menu>
