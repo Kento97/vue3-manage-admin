@@ -8,6 +8,7 @@
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^1.1.4",
     "@vueuse/core": "^8.1.2",
     "axios": "^0.21.1",
     "echarts": "^5.3.1",

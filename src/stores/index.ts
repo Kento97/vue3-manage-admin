@@ -4,7 +4,7 @@ export const useStore = defineStore({
     id: 'index_store',
     state: () => ({
         tagsList: [],
-        collapse: false
+        collapse: true
     }),
     getters: {},
     actions: {
