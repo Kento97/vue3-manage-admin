@@ -1,10 +1,5 @@
 <template>
   <div class="header">
-    <!-- 折叠按钮 -->
-    <div class="collapse-btn" @click="collapseChange">
-      <i v-if="!collapse" class="el-icon-s-fold"></i>
-      <i v-else class="el-icon-s-unfold"></i>
-    </div>
     <div class="logo">后台管理系统</div>
     <div class="header-right">
       <div class="header-user-con">
@@ -12,20 +7,20 @@
         <div class="btn-bell">
           <el-tooltip effect="dark" :content="message?`有${message}条未读消息`:`消息中心`" placement="bottom">
             <router-link to="/">
-              <i class="el-icon-bell"></i>
+              <el-icon><bell /></el-icon>
             </router-link>
           </el-tooltip>
           <span class="btn-bell-badge" v-if="message"></span>
         </div>
         <!-- 用户头像 -->
         <div class="user-avator">
-          <img src="../assets/img/img.jpg" alt="头像"/>
+          <img src="../assets/img/永恩.jpg" alt="头像"/>
         </div>
         <!-- 用户名下拉菜单 -->
         <el-dropdown class="user-name" trigger="click" @command="handleCommand">
           <span class="el-dropdown-link">
             {{ username }}
-            <i class="el-icon-caret-bottom"></i>
+            <el-icon><caret-bottom /></el-icon>
           </span>
           <template #dropdown>
             <el-dropdown-menu>
