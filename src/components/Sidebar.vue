@@ -74,11 +74,6 @@ const items: Tree[] = [
     ],
   },
   {
-    icon: "Coin",
-    index: "/charts",
-    title: "Echarts图表",
-  },
-  {
     icon: "Moon",
     index: "/i18n",
     title: "国际化功能",
