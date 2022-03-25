@@ -29,6 +29,14 @@ const router = createRouter({
                     },
                     component: () => import ( /* webpackChunkName: "table" */ "@/views/BaseTable.vue")
                 },
+                {
+                    path: "/tabs",
+                    name: "tabs",
+                    meta: {
+                        title: 'tab标签'
+                    },
+                    component: () => import ( /* webpackChunkName: "tabs" */ "@/views/Tabs.vue")
+                },
             ]
         }
     ]
