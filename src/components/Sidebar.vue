@@ -1,15 +1,8 @@
 <template>
   <div class="sidebar">
-    <el-menu
-        :default-active="onRoutes"
-        active-text-color="#20a0ff"
-        background-color="#324157"
-        class="sidebar-el-menu"
-        router
-        text-color="#bfcbd9"
-        unique-opened
-    >
-      <TreeMenu :menuList="menuList"/>
+    <el-menu :default-active="onRoutes" active-text-color="#20a0ff" background-color="#324157" class="sidebar-el-menu"
+      router text-color="#bfcbd9" unique-opened>
+      <TreeMenu :menuList="menuList" />
     </el-menu>
   </div>
 </template>
@@ -20,86 +13,13 @@ export default {
 }
 </script>
 <script lang='ts' setup>
-import {computed, ref, watch} from "vue";
-import {useStore} from "@/stores";
-import {useRoute} from "vue-router";
+import { computed, ref, watch } from "vue";
+import { useStore } from "@/stores";
+import { useRoute } from "vue-router";
 import TreeMenu from "@/components/TreeMenu.vue";
+import { menuListData } from "@/mock/data";
 
-interface Tree {
-  icon?: string,
-  index: string,
-  title: string,
-  subs?: Tree[]
-}
-
-const items: Tree[] = [
-  {
-    icon: "HomeFilled",
-    index: "/dashboard",
-    title: "系统首页",
-  },
-  {
-    icon: "Menu",
-    index: "/table",
-    title: "基础表格",
-  },
-  {
-    icon: "Tickets",
-    index: "/tabs",
-    title: "tab选项卡",
-  },
-  {
-    icon: "Sunset",
-    index: "3",
-    title: "表单相关",
-    subs: [
-      {
-        index: "/form",
-        title: "基本表单",
-      },
-      {
-        index: "/upload",
-        title: "文件上传",
-      },
-      {
-        index: "4",
-        title: "三级菜单",
-        subs: [
-          {
-            index: "/editor",
-            title: "富文本编辑器",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    icon: "Moon",
-    index: "/i18n",
-    title: "国际化功能",
-  },
-  {
-    icon: "CloseBold",
-    index: "7",
-    title: "错误处理",
-    subs: [
-      {
-        index: "/permission",
-        title: "权限测试",
-      },
-      {
-        index: "/404",
-        title: "404页面",
-      },
-    ],
-  },
-  {
-    icon: "Avatar",
-    index: "/donate",
-    title: "支持作者",
-  },
-]
-const menuList = ref(items)
+const menuList = ref(menuListData)
 const route = useRoute();
 
 const onRoutes = computed(() => route.path);
@@ -134,7 +54,7 @@ const collapse = computed(() => store.collapse);
   width: 250px;
 }
 
-.sidebar > ul {
+.sidebar>ul {
   height: 100%;
 }
 </style>
