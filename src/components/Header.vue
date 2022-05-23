@@ -5,22 +5,26 @@
       <div class="header-user-con">
         <!-- 消息中心 -->
         <div class="btn-bell">
-          <el-tooltip effect="dark" :content="message?`有${message}条未读消息`:`消息中心`" placement="bottom">
+          <el-tooltip effect="dark" :content="message ? `有${message}条未读消息` : `消息中心`" placement="bottom">
             <router-link to="/">
-              <el-icon><bell /></el-icon>
+              <el-icon>
+                <bell />
+              </el-icon>
             </router-link>
           </el-tooltip>
           <span class="btn-bell-badge" v-if="message"></span>
         </div>
         <!-- 用户头像 -->
         <div class="user-avator">
-          <img src="../assets/img/永恩.jpg" alt="头像"/>
+          <img src="../assets/img/永恩.jpg" alt="头像" />
         </div>
         <!-- 用户名下拉菜单 -->
         <el-dropdown class="user-name" trigger="click" @command="handleCommand">
           <span class="el-dropdown-link">
             {{ username }}
-            <el-icon><caret-bottom /></el-icon>
+            <el-icon>
+              <caret-bottom />
+            </el-icon>
           </span>
           <template #dropdown>
             <el-dropdown-menu>
@@ -39,9 +43,9 @@
 </template>
 
 <script setup lang='ts'>
-import {computed, onMounted} from "vue";
-import {useRouter} from "vue-router";
-import {useStore} from "@/stores";
+import { computed, onMounted } from "vue";
+import { useRouter } from "vue-router";
+import { useStore } from "@/stores";
 
 const username = localStorage.getItem("ms_username") ?? "暂无姓名";
 const message = 2;
@@ -92,6 +96,7 @@ const handleCommand = (command: string) => {
   float: left;
   width: 250px;
   line-height: 70px;
+  margin-left: 20px;
 }
 
 .header-right {

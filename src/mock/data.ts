@@ -61,11 +61,11 @@ const menuListData: Tree[] = [
             },
         ],
     },
-    {
-        icon: "Avatar",
-        index: "/donate",
-        title: "支持作者",
-    },
+    // {
+    //     icon: "Avatar",
+    //     index: "/donate",
+    //     title: "支持作者",
+    // },
 ]
 
 export { menuListData }

@@ -4,7 +4,7 @@
       <el-col :span="12">
         <el-card class="mgb20" shadow="hover" style="height:252px;">
           <div class="user-info">
-            <img alt class="user-avator" src="../assets/img/永恩.jpg"/>
+            <img alt="" class="user-avator" src="../assets/img/永恩.jpg" />
             <div class="user-info-cont">
               <div class="user-info-name">{{ name }}</div>
               <div>{{ role }}</div>
@@ -41,7 +41,7 @@
             <el-card :body-style="{ padding: '0px' }" shadow="hover">
               <div class="grid-content grid-con-1">
                 <el-icon :size="40">
-                  <user-filled/>
+                  <user-filled />
                 </el-icon>
                 <div class="grid-cont-right">
                   <div class="grid-num">1234</div>
@@ -54,7 +54,7 @@
             <el-card :body-style="{ padding: '0px' }" shadow="hover">
               <div class="grid-content grid-con-2">
                 <el-icon :size="40">
-                  <comment/>
+                  <comment />
                 </el-icon>
                 <div class="grid-cont-right">
                   <div class="grid-num">321</div>
@@ -67,7 +67,7 @@
             <el-card :body-style="{ padding: '0px' }" shadow="hover">
               <div class="grid-content grid-con-3">
                 <el-icon :size="40">
-                  <promotion/>
+                  <promotion />
                 </el-icon>
                 <div class="grid-cont-right">
                   <div class="grid-num">5000</div>
@@ -77,7 +77,7 @@
             </el-card>
           </el-col>
         </el-row>
-        <el-card :body-style="{overflow:'auto',}" shadow="hover" style="height:403px;">
+        <el-card :body-style="{ overflow: 'auto', }" shadow="hover" style="height:403px;">
           <template #header>
             <div class="clearfix">
               <span>待办事项</span>
@@ -93,7 +93,7 @@
             </el-table-column>
             <el-table-column>
               <template #default="scope">
-                <div :class="{ 'todo-item-del': scope.row.status,}" class="todo-item">
+                <div :class="{ 'todo-item-del': scope.row.status, }" class="todo-item">
                   {{ scope.row.title }}
                 </div>
               </template>
@@ -101,10 +101,10 @@
             <el-table-column width="60">
               <template #default="scope">
                 <el-icon :size="15">
-                  <edit/>
+                  <edit />
                 </el-icon>
                 <el-icon :size="15" style="cursor: pointer" @click="deleteTodo">
-                  <delete/>
+                  <delete />
                 </el-icon>
               </template>
             </el-table-column>
@@ -124,12 +124,21 @@
         </el-card>
       </el-col>
     </el-row>
+
+    <el-row :gutter="20">
+      <el-col :span="12">
+        <el-card shadow="hover">
+          <Scroll></Scroll>
+        </el-card>
+      </el-col>
+    </el-row>
   </section>
 </template>
 
 <script lang="ts" setup>
 import * as echarts from 'echarts';
-import {onBeforeUnmount, onMounted, ref} from "vue";
+import { onBeforeUnmount, onMounted, ref } from "vue";
+import Scroll from "../components/Scroll.vue";
 
 type EChartsOption = echarts.EChartsOption;
 
@@ -161,18 +170,18 @@ const todoList = ref([
     status: true,
   },
 ]);
-const languageList = ref([10,20,30,40])
-let timer:NodeJS.Timer;
+const languageList = ref([10, 20, 30, 40])
+let timer: NodeJS.Timer;
 const changePercent = () => {
-    let randomIndex=Math.floor(Math.random()*4) // 0-3
-    let randomPercent=Number((Math.random()*100).toFixed(2))
-    languageList.value.splice(randomIndex,1,randomPercent)
+  let randomIndex = Math.floor(Math.random() * 4) // 0-3
+  let randomPercent = Number((Math.random() * 100).toFixed(2))
+  languageList.value.splice(randomIndex, 1, randomPercent)
 }
 const addTodo = () => {
   todoList.value.unshift({
     title: "今天要修复0个bug",
     status: false,
-  },)
+  })
 }
 const deleteTodo = () => {
   todoList.value.splice(0, 1)
@@ -224,11 +233,11 @@ const drawBingtu = () => {
         type: 'pie',
         radius: '50%',
         data: [
-          {value: 1048, name: 'Search Engine'},
-          {value: 735, name: 'Direct'},
-          {value: 580, name: 'Email'},
-          {value: 484, name: 'Union Ads'},
-          {value: 300, name: 'Video Ads'}
+          { value: 1048, name: 'Search Engine' },
+          { value: 735, name: 'Direct' },
+          { value: 580, name: 'Email' },
+          { value: 484, name: 'Union Ads' },
+          { value: 300, name: 'Video Ads' }
         ],
         emphasis: {
           itemStyle: {
@@ -248,10 +257,10 @@ const drawBingtu = () => {
 onMounted(() => {
   drawZhexian()
   drawBingtu()
-  timer=setInterval(() => {
+  timer = setInterval(() => {
     changePercent()
     console.log("setInterval正在运行")
-  },2000)
+  }, 2000)
 })
 onBeforeUnmount(() => {
   clearInterval(timer)
